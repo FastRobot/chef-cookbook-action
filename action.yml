@@ -1,0 +1,8 @@
+name: 'Chef Cookbook Actions'
+description: 'Tasks to run on chef cookbooks'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'heart'
+  color: 'orange'
