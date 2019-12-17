@@ -14,10 +14,10 @@ Planned:
 
 ## Secrets
 * cloud secrets for kitchen
-* 
+* a chef pem
 
 ## Inputs
- none. We expect you to deviate from the default behavior of the tools via a checked-in `.rubocop.yml` or setting `FC*` environment variables for foodcritic.
+* chef_task - one of lint, kitchen, berks
  
  ## Outputs
  none. The Action commands will either all exit cleanly or will throw a non-zero RC and log their complaint.  Fix it or Mask it and try again.
@@ -29,7 +29,7 @@ Planned:
  name: Unit
  uses: FastRobot/chef-cookbook-action@v0.1.0
  with:
-  chef_actions_command: 'rspec'
+  chef_actions_task: 'spec'
 ```
 
 Full kitchen create/converge/verify/destroy cycle, optionally using other cloud resources
@@ -37,8 +37,11 @@ Full kitchen create/converge/verify/destroy cycle, optionally using other cloud 
 name: Integration
 uses: FastRobot/chef-cookbook-action@v0.1.0
 with:
-  chef_action_command: 'kitchen test -d always'
+  chef_actions_task: 'kitchen test -d always'
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 ```
+
+Based off of the excellent action pattern from:
+https://github.com/hashicorp/terraform-github-actions
