@@ -1,6 +1,6 @@
 #!/bin/bash -l
 
-set -ou
+set -o
 
 function main {
   # Source the other files to gain access to their functions
