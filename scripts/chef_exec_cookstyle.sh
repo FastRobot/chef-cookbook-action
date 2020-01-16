@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -oe
+set -euo pipefail
 
 function chefCookStyle {
   echo "Running cookstyle"
@@ -15,4 +15,11 @@ function chefCookStyle {
     exit "${chefExitCode}"
   fi
 
+  # Exit code of !0 indicates failure.
+  if [ ${chefExitCode} -ne 0 ]; then
+    echo "CookStyle is not happy:"
+    echo "${chefOutput}"
+    echo
+    exit "${chefExitCode}"
+  fi
 }
