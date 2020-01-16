@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -oe
+set -euo pipefail
 
 function chefFoodcritic {
   echo "Running foodcritic"
