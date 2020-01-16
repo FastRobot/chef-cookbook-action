@@ -14,7 +14,7 @@ function parseInputs {
 
   # Optional inputs
   chefWorkingDir="."
-  if [ "${INPUT_CHEF_ACTIONS_WORKING_DIR}" != "" ] || [ "${INPUT_CHEF_ACTIONS_WORKING_DIR}" != "." ]; then
+  if [[ -v INPUT_CHEF_ACTIONS_WORKING_DIR ]] || [ "${INPUT_CHEF_ACTIONS_WORKING_DIR}" != "." ]; then
     chefWorkingDir=${INPUT_CHEF_ACTIONS_WORKING_DIR}
   fi
 
