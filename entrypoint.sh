@@ -1,8 +1,5 @@
 #!/bin/bash -l
 
-set -o errexit
-set -o pipefail
-
 function main {
   # Source the other files to gain access to their functions
   scriptDir="$(dirname "${0}")/scripts"
