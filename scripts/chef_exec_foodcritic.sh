@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 function chefFoodcritic {
   echo "Running foodcritic"
   chef exec foodcritic .

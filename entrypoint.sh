@@ -1,6 +1,7 @@
 #!/bin/bash -l
 
-set -o
+set -o errexit
+set -o pipefail
 
 function main {
   # Source the other files to gain access to their functions

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 function chefCookStyle {
   echo "Running cookstyle"
   chefOutput=$(chef exec cookstyle ${*} 2>&1)

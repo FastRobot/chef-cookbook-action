@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 function chefValidate {
   echo "Running kitchen test"
   chefOutput=$(chef exec kitchen test --destroy=always ${*} 2>&1)

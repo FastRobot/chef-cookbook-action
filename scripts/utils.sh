@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# not setting -u cause I don't want to rework all the variable assignments
-set -eo pipefail
-
 function parseInputs {
   # Required inputs
   if [ "${INPUT_CHEF_ACTIONS_TASK}" != "" ]; then
