@@ -9,6 +9,10 @@ function main {
   source "${scriptDir}/chef_exec_cookstyle.sh"
   # shellcheck source=scripts/chef_exec_foodcritic.sh
   source "${scriptDir}/chef_exec_foodcritic.sh"
+  # shellcheck source=scripts/chef_exec_rspec.sh
+  source "${scriptDir}/chef_exec_rspec.sh"
+  # shellcheck source=scripts/chef_exec_kitchen.sh
+  source "${scriptDir}/chef_exec_kitchen.sh"
 
   parseInputs
   cd "${GITHUB_WORKSPACE}"/"${chefWorkingDir}"

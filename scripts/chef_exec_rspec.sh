@@ -1,13 +1,13 @@
 #!/bin/bash
 
-function chefFoodcritic {
-  echo "Running foodcritic"
-  chefOutput=$(chef exec foodcritic ${chefWorkingDir} ${*} 2>&1)
+function chefSpec {
+  echo "Running rspec"
+  chefOutput=$(chef exec rspec ${*} 2>&1)
   chefExitCode=${?}
 
-  # chef exec footcritic exit 0 means all good
+  # rspec exit 0 means all good
   if [ ${chefExitCode} -eq 0 ]; then
-    echo "FoodCritic gives you an A+ (all rules pass)"
+    echo "rspec unit tests passed"
     echo "${chefOutput}"
     echo
     exit "${chefExitCode}"
@@ -15,10 +15,9 @@ function chefFoodcritic {
 
   # Exit code of !0 indicates failure.
   if [ ${chefExitCode} -ne 0 ]; then
-    echo "FoodCritic is not happy:"
+    echo "not happy with the rspec:"
     echo "${chefOutput}"
     echo
     exit "${chefExitCode}"
   fi
-
 }
