@@ -3,6 +3,8 @@
 function chefValidate {
   echo "Running kitchen test"
   # some if-the-driver-is-docker logic
+  apt update && apt install -y docker.io
+  docker info
   chef gem install kitchen-docker -v 2.9.0
   chefOutput=$(chef exec kitchen test --destroy=always ${*} 2>&1)
   chefExitCode=${?}
