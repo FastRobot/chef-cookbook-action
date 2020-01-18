@@ -2,11 +2,10 @@
 
 function chefValidate {
   echo "Running kitchen test"
-  chef gem list -l
-  kitchen diagnose --all
+  # some if-the-driver-is-docker logic
+  chef gem install kitchen-docker -v 2.9.0
   chefOutput=$(chef exec kitchen test --destroy=always ${*} 2>&1)
   chefExitCode=${?}
-  cat .kitchen/logs/kitchen.log
 
   # kitchen exit 0 means all good
   if [ ${chefExitCode} -eq 0 ]; then
@@ -21,6 +20,7 @@ function chefValidate {
     echo "Failed kitchen test"
     echo "${chefOutput}"
     echo
+    cat .kitchen/logs/kitchen.log
     exit "${chefExitCode}"
   fi
 
